@@ -1,31 +1,28 @@
 {
-	"compatibility_date": "2025-10-08",
-	"main": "src/server/index.ts",
-	"name": "kamera-unik-relay",
-	"migrations": [
-		{
-			"new_sqlite_classes": ["Chat"],
-			"tag": "v1"
-		}
-	],
-	"assets": {
-		"directory": "./public",
-		"binding": "ASSETS",
-		"not_found_handling": "single-page-application"
-	},
-	"build": {
-		"command": "esbuild src/client/index.tsx --bundle --splitting --format=esm --platform=browser --outdir=public/dist"
-	},
-	"durable_objects": {
-		"bindings": [
-			{
-				"class_name": "Chat",
-				"name": "Chat"
-			}
-		]
-	},
-	"observability": {
-		"enabled": true
-	},
-	"upload_source_maps": true
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "kamera-unik-relay",
+  "main": "src/server/index.ts",
+  "compatibility_date": "2026-08-15",
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "Chat",
+        "class_name": "Chat"
+      }
+    ]
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "Chat"
+      ]
+    }
+  ],
+
+  "observability": {
+    "enabled": true
+  }
 }
